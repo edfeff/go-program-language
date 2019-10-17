@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/wpp/go-program-language/chapter02/s04"
+)
 
 //基础类型
 // 布尔
@@ -40,7 +43,11 @@ var r rune = 1
 var e error = nil
 
 func main() {
-	sf()
+	//sf()
+	//bitf()
+	//arrf()
+	//s04.RunSlice()
+	s04.RunMap()
 }
 
 //复合类型
@@ -115,4 +122,43 @@ func sf() {
 // 一个是rune,表示单个Unicode字符
 func cf() {
 
+}
+
+//位运算
+func bitf() {
+	b1 := 124 << 2
+	b2 := 124 >> 2
+	b3 := 124 ^ 2
+	b4 := 124 & 2
+	b5 := 124 | 2
+	b6 := ^2
+	fmt.Println(b1, b2, b3, b4, b5, b6)
+}
+
+//数组
+func arrf() {
+	var bArr [32]byte                //字节数组
+	var sArr [2]struct{ x, y int32 } //结构体数组
+	var fArr [11]*float64            //指针数组
+	var binArr [3][5]int             //二维数组,3行5列
+
+	//数组长度不可更改
+	fmt.Println(len(bArr), len(sArr), len(fArr), len(binArr))
+
+	//遍历 方式1
+	for i := 0; i < len(bArr); i++ {
+		fmt.Println(bArr[i])
+	}
+	//遍历 方式2
+	for index, value := range bArr {
+		fmt.Println(index, value)
+	}
+	//值类型,数组也是值类型,在赋值时会进行深度复制,函数参数传递时,传递的是副本
+	testArr := [2]int{1, 2}
+	cantModify(testArr)
+	fmt.Println(testArr) //[1 2]
+}
+func cantModify(arr [2]int) {
+	arr[0] = 0
+	arr[1] = 0
 }
