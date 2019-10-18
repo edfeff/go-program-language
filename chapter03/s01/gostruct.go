@@ -6,16 +6,21 @@ package s01
 
 //矩形类
 type Rect struct {
-	x, y          float64
-	width, height float64
+	X, Y          float64
+	Width, Height float64
 }
 
 //矩形的面积成员方法
 func (r *Rect) Area() float64 {
-	return r.height * r.width
+	return r.Height * r.Width
 }
 
 //矩形的周长成员方法
 func (r *Rect) Round() float64 {
-	return 2 * (r.width + r.height)
+	return 2 * (r.Width + r.Height)
+}
+
+//构造函数
+func NewRect(x, y, width, height float64) *Rect {
+	return &Rect{x, y, width, height}
 }
