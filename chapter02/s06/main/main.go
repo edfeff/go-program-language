@@ -61,4 +61,28 @@ func main() {
 
 	//
 	findType("1", 1, 111, 1.1)
+	//匿名函数
+	noNameFunction()
+	closureTest()
+}
+
+//匿名函数与闭包
+//在Go里面，函数可以像普通变量一样被传递或使用
+func noNameFunction() {
+	//1. 匿名函数直接赋值给变量
+	f1 := func(a int, b int) int {
+		return a + b
+	}
+	//通过变量调用
+	i := f1(1, 2)
+	fmt.Println(i)
+	//2. 直接调用
+	func() {
+		fmt.Println("direct invoke")
+	}()
+	//3 接受参数
+	b := func(a, b int) bool {
+		return a > b
+	}(1, 2)
+	fmt.Println(b)
 }
