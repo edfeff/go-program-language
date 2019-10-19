@@ -62,5 +62,6 @@ func main() {
 	//CallStat()
 	//UserJob()
 	//noNameDefer()
-	deferOrder()
+	//deferOrder()
+	testPanic()
 }
