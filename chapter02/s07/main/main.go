@@ -59,5 +59,8 @@ func CallStat() {
 	}
 }
 func main() {
-	CallStat()
+	//CallStat()
+	//UserJob()
+	//noNameDefer()
+	deferOrder()
 }
